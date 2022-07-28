@@ -1,35 +1,32 @@
 from pathlib import Path
-#base_path = r'c:\dir\with\bunch\of\files'
 base_path=Path.home() / "Downloads"
 filename_filter = ["*.txt","*.xls","*.kk"]
-pastas=[]
-def k():
-    for t in filename_filter:
-        for filename in Path(base_path).rglob(t):
-            print(filename)
-            pastas.append(filename)
-k()
-#print(pastas[0])
+def revert(var):
+    c=int(len(var)-1)
+    msg=''
+    for i in var:
+        msg=msg+var[c]
+        c=c-1
+    return msg
 def form(var):
-    #print(f"Variavel: {var}")
     var=var.__str__()
-    l=[]
     c=int(len(var)-1)
     o=r"\ ".replace(" ","")
-    while c >=0:
+    msg=''
+    for g in var:
         if var[c]==o:
-            #print('final')
             break
         else:
-            l.append(var[c])
+            msg=msg+var[c]
         c=c-1
-    v=int(len(l)-1)
-    msg=''
-    while v >=0:
-        msg=msg+l[v]
-        v=v-1
-    #print(msg)
+    msg=revert(msg)
+    msg=var.replace(msg, "")
     return msg
-for h in pastas:
-    print(form(h))
-#print(form(pastas[0]))
+def varer():
+    pastas=[]
+    for t in filename_filter:
+        for filename in Path(base_path).rglob(t):
+            pastas.append(form(filename))
+    return pastas
+cu=varer()
+print(cu)

